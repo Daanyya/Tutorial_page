@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="style.css">
+	<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&family=Quicksand&display=swap" rel="stylesheet">
+	<title>Tutorial page</title>
+</head>
+	<body>
+		<div id="SSId" class="Surprise_screen">
+			<img id="surprise_image" src="images/surprise_image.jpg">
+			<div>
+				<p id="surprise_date"></p>
+				<p id="surprise_user_name"></p>	
+			</div>
+		</div>
+		<div class="Header" id="header_view">
+			<div class="Icons">
+				<img id="main_icon" onclick="go_home()" src="images/home_1.png">
+				<img src="images/js.png">
+				<div id="button_all">
+					<p>ВСЁ</p>
+					<img id="menu_button_off" src="images/all.png" onclick="menu_off()">
+					<img id="menu_button_on" src="images/all_revers.png" onclick="menu_on()">
+				</div>
+				<p id="icon_user_name"></p>
+			</div>
+			<div class="Menu" id="menu_view" onclick="menu_off">
+				<h3 name="menu_title" onclick="scroll_to('intro_title')">Введение</h3>
+				<h3 name="menu_title" onclick="scroll_to('js_title')">О JS</h3>
+				<h3 name="menu_title" onclick="scroll_to('possibilities_title')">Возможности</h3>
+				<div>
+					<p onclick="scroll_to('hello_title')">Приветствие</p>
+					<div>
+						<i>Как тебя зовут?</i>
+						<input id="user_name" type="text">
+						<button onclick="hello_user()">Нажми на меня!</button>
+					</div>
+				</div>
+				<div>
+					<p onclick="scroll_to('delta_title')">Площадь треугольника</p>
+					<div>
+						<i>Основание</i>
+						<input id="delta_basis" type="number" min="1" value="0">
+						<i>Высота</i>
+						<input id="delta_heigh" type="number" min="1" value="0">
+						<button onclick="delta_side()">Посчитай!</button>
+					</div>
+				</div>
+				<div>
+					<p onclick="scroll_to('length_title')">Длины строк</p>
+					<div class="Function_container">
+						<div>
+							<i>Первая строка</i>
+							<input id="string_1" type="text">
+						</div>
+						<div>
+							<i>Вторая строка</i>
+							<input id="string_2" type="text">
+						</div>
+						<div>
+							<button onclick="string_comparator()">Сравни!</button>
+						</div>
+					</div>
+				</div>
+				<div>
+					<p onclick="scroll_to('minimax_title')">Minimax</p>
+					<div class="Function_container">
+						<div>
+							<i>Первый элемент</i>
+							<input name="minimax_element" type="text">
+						</div>
+						<div>
+							<i>Второй элемент</i>
+							<input name="minimax_element" type="text">
+						</div>
+						<div>
+							<i>Третий элемент</i>
+							<input name="minimax_element" type="text">
+						</div>
+						<div>
+							<i>Четвёртый элемент</i>
+							<input name="minimax_element" type="text">
+						</div>
+						<div>
+							<i>Пятый элемент</i>
+							<input name="minimax_element" type="text">
+						</div>
+						<div>
+							<button onclick="min_max()">Минимакс!</button>
+						</div>
+					</div>
+				</div>
+				<div>
+					<p onclick="scroll_to('timer_title')">Таймер</p>
+					<div>
+						<h3 id="timer_screen" style="display: contents; margin: 10px 0;">
+							<time>
+								00:00:00
+							</time>
+						</h3>
+						<button id="timer_on" onclick="timer()">Запусти!</button>
+						<button id="timer_off" onclick="timer_pause()">Пауза</button>
+					</div>
+				</div>
+				<div>
+					<p onclick="scroll_to('surprise_title')">Сюрприз</p>
+					<div>
+						<i>Нажми попробуй :)</i>
+						<button id="super_button" onclick="surprise()">Нажми на меня!</button>
+					</div>
+				</div>
+				<h3 name="menu_title" onclick="scroll_to('test_title')">Тест</h3>
+			</div>
+		</div>
+		<div class="Content">
+			<div class="Side_nav">
+				<div class="Side_block">
+					<img src="images/teleport_1.png">
+					<h3 name="side_link">Телепортатор</h3>
+					<h3 onclick="scroll_to('intro_title')">Введение</h3>
+					<h3 onclick="scroll_to('js_title')">О JS</h3>
+					<h3 onclick="scroll_to('possibilities_title')">Возможности</h3>
+					<p onclick="scroll_to('hello_title')">Приветствие</p>
+					<p onclick="scroll_to('delta_title')">Площадь треугольника</p>
+					<p onclick="scroll_to('length_title')">Длины строк</p>
+					<p onclick="scroll_to('minimax_title')">Minimax</p>
+					<p onclick="scroll_to('timer_title')">Таймер</p>
+					<p onclick="scroll_to('surprise_title')">Сюрприз</p>
+					<h3 onclick="scroll_to('test_title')">Тест</h3>
+					<img src="images/teleport_2.png">
+				</div>
+			</div>
+			<div class="Info">
+				<div class="Intro">
+					<h1 id="intro_title">Введение</h1>
+					<p>
+						JavaScript — это язык программирования, который используют для написания frontend- и backend-частей сайтов, а также мобильных приложений. Часто в текстах и обучающих материалах название языка сокращают до JS. Это язык программирования высокого уровня, то есть код на нем понятный и хорошо читается.
+					</p>		
+					<p>
+						JS поддерживают все популярные браузеры. Во frontend-части сайтов язык используют для создания интерактива (анимаций, всплывающих форм, автозаполнения), так как он связан с HTML и CSS и может ими манипулировать. В backend-части с языком JavaScript работают на платформе Node.js. С ее помощью, например, разрабатывают серверные веб-приложения и подключают библиотеки. В поисковике Google на JavaScript работает строка автозаполнения, а Netflix, Uber, eBay используют его в своем backend.
+					</p>
+					<p>
+						JavaScript называют языком скриптов или сценариев. Скрипты — это набор инструкций, которые выполняются при загрузке страницы. Браузер самостоятельно интерпретирует код на JavaScript, для этого даже не требуется компиляция (перевод языка программирования в машинный код).
+					</p>
+				</div>
+				<div class="Details">
+					<h1 id="js_title">О JS</h1>
+					<h2>Для чего нужен JavaScript</h2>
+					<p>
+						В веб-приложениях HTML отвечает за разметку страницы. Расположение контента, внешний вид интерфейса описывается с помощью CSS, а JavaScript отвечает за интерактивность и функционал этого интерфейса. Вот примеры задач, которые решает JS:
+					</p>
+					<ul>
+						<li>
+							Взаимодействие с пользователем. Всплывающие окна с полем для ввода почты или других данных, уведомления об использовании cookie.
+						</li>
+						<li>
+							Обработка данных HTML. JS помогает заполнить необходимые поля в формах, проверять буквенные и числовые значения, а также управлять HTML-элементами на странице. Например, в конструкторе лендингов Tilda можно перетаскивать блоки и по клику менять шрифты, цвета текста, фонов и другие значения.
+						</li>
+						<li>
+							Анимация. Это не только движущиеся объекты на странице и кнопки, но и карусель в галерее или плавная прокрутка страницы. Например, Pinterest с помощью JavaScript создал эффект бесконечной ленты.
+						</li>
+						<li>
+							Математические вычисления. С помощью JS-скриптов на сайтах реализованы калькуляторы, например подсчет суммы заказа в корзине интернет-магазина.
+						</li>
+					</ul>
+					<h2>
+						Что не получится сделать на JavaScript
+					</h2>
+					<p>
+						Вот какие ограничения есть у JS:
+					</p>
+					<ul>
+						<li>
+							JS не умеет читать, записывать или запускать файлы напрямую с устройства.
+						</li>
+						<li>
+							Чтобы связать всплывающее окно с основной страницей, придется писать дополнительный код, иначе они не смогут обмениваться введенными данными.
+						</li>
+						<li>
+							JS взаимодействует только с тем сервером, с которого открыта страница. Для работы со сторонними сайтами и сервисами придется прописать дополнительный код с обеих сторон, чтобы они могли взаимодействовать друг с другом.
+						</li>
+					</ul>
+				</div>
+				<div class="Possibilities">
+					<h1 id="possibilities_title">Некоторые возможности</h1>
+					<div class="Hello">
+						<h2 id="hello_title">Приветствие</h2>
+						<p>Как тебя зовут?</p>
+						<input id="user_name" type="text">
+						<button onclick="hello_user()">Нажми на меня!</button>
+						<div class="Description">
+							<ol>
+								<li>
+									<div>
+										<p name="decription_title">Получаем доступ к элементу &lt;input&gt;&lt;/input&gt; с идентификатором "user name" и сразу же присваиваем ешл значение в переменную name</p>
+										<pre name="code">
+var name = document.getElementById("user_name").value;
+										</pre>
+									</div>
+								</li>
+								<li>
+									<div>
+										<p name="decription_title">Проверяем введённое пользователем значение, записанное в name. Поскольку &lt;input&gt;&lt;/input&gt; был с текстовым типом (атрибутом type="text"), мы берём длину строки. Если длина строки оказалась нулевой,  то выводим сообщение о приветствии пользователя, без указания имени пользователя (alert("Привет друг!")), иначе же, если длина не нулевая, значит пользователь ввёл имя. Сохраняем его в localStorage (локальное хранилище), указывая имя переменной "user_name" в которую запишется значение из переменной name (localStorage("user_name", name)). После чего выводим сообщение о приветствии с именем пользователя из переменной name (alert("Привет " + name + "!"))</p>
+										<pre name="code">
+if (name.length == 0) {
+	alert("Привет друг!");
+} else {
+	localStorage.setItem("user_name", name);
+	alert("Привет " + name + "!");
+}
+										</pre>
+									</div>
+								</li>
+							</ol>
+						</div>
+					</div>
+					<div class="Delta_side">
+						<h2 id="delta_title">Площадь треугольника</h2>
+						<p>Укажи основание и высоту треугольника:</p>
+						<div>
+							<label>Основание</label>
+							<input id="delta_basis" type="number" min="1" value="0">	
+						</div>
+						<div>
+							<label>Высота</label>
+							<input id="delta_heigh" type="number" min="1" value="0">	
+						</div>
+						<button onclick="delta_side()">Посчитай!</button>
+						<div class="Description">
+							<ol>
+								<li>
+									<div>
+										<p name="decription_title">Содаём 3 переменных (basis, heigh, side). В basis и heigh получаем доступ к значения элементов из &lt;input&gt;&lt;/input&gt;. С идентификаторами "delta_basis" и "delta_heigh" соответственно.</p>
+										<pre name="code">
+var 
+	basis = document.getElementById("delta_basis").value,
+	heigh = document.getElementById("delta_heigh").value
+	side;
+										</pre>
+									</div>
+								</li>
+								<li>
+									<div>
+										<p name="decription_title">Записываем расчёт по формуле (0.5 * basis * heigh) в переменную side и выводим сообщение с результатом (alert("Площадь твоего треугольника равна " + side))</p>
+										<pre name="code">
+side = 0.5 * basis * heigh
+alert("Площадь твоего треугольника равна " + side);
+										</pre>
+									</div>
+								</li>
+							</ol>
+						</div>
+					</div>
+					<div class="Strings">
+						<h2 id="length_title">Длины строк</h2>
+						<p>Введи две строки и сравни их на длину:</p>
+						<div>
+							<label>Первая строка:</label>
+							<input id="string_1" type="text">
+						</div>
+						<div>
+							<label>Вторая строка:</label>
+							<input id="string_2" type="text">
+						</div>
+						<button onclick="string_comparator()">Сравни!</button>
+						<div class="Description">
+							<ol>
+								<li>
+									<div>
+										<p name="decription_title">Получаем значения строк из &lt;input&gt;&lt;/input&gt; с идентификаторами "string_1" и "string_2"</p>
+										<pre name="code">
+var 
+	string_1 = document.getElementById("string_1").value,
+	string_2 = document.getElementById("string_2").value;
+										</pre>
+									</div>
+								</li>
+								<li>
+									<div>
+										<p name="decription_title">Выводим сообщение о результате сравнения длин двух строк, используя свойство length</p>
+										<pre name="code">
+alert(string_1.length == string_2.length);
+										</pre>
+									</div>
+								</li>
+							</ol>
+						</div>
+					</div>
+					<div class="Minmax">
+						<h2 id="minimax_title">Минимакс</h2>
+						<p>Укажи значение 5-ти элементов и узнай минимальное и максимальное из них:</p>
+						<div>
+							<label>Первый элемент:</label>
+							<input name="minimax_element" type="text">
+						</div>
+						<div>
+							<label>Второй элемент:</label>
+							<input name="minimax_element" type="text">
+						</div>
+						<div>
+							<label>Третий элемент:</label>
+							<input name="minimax_element" type="text">
+						</div>
+						<div>
+							<label>Четвёртый элемент:</label>
+							<input name="minimax_element" type="text">
+						</div>
+						<div>
+							<label>Пятый элемент:</label>
+							<input name="minimax_element" type="text">
+						</div>
+						<button onclick="min_max()">Минимакс!</button>
+						<div class="Description">
+							<ol>
+								<li>
+									<div>
+										<p name="decription_title">Для того, чтобы наш Минимакс мог сравнивать и числа и строки. Напишем свою функцию подсчёта максимального и минимального значения.</p>
+										<p name="decription_title">Создаём переменные: mass для хранения доступа ко всем необходимым элементам &lt;input&gt;&lt;/input&gt;, min и max  для подсчёта минимального и максимального значения, min_index и max_index для получения индексов минимального и максимального значения, а также count для подсчёта текущего элемента</p>
+										<pre name="code">
+var 
+	mass = new Array(),
+	min, 
+	max, 
+	min_index, 
+	max_index, 
+	count = 0;
+										</pre>
+									</div>
+								</li>
+								<li>
+									<div>
+										<p name="decription_title">Получаем доступ ко всем нужным элементам с идентификаторами "mass_element_i". Переменная i выступает в роли счётчика цикла.</p>
+										<pre name="code">
+for (var i = 0; i < 5; i++) {
+	mass.push(document.getElementById("mass_element_" + i).value);
+}
+										</pre>
+									</div>
+								</li>
+								<li>
+									<div>
+										<p name="decription_title">Проводим проверку на количество введённых элементов. Если всё в порядке, то получаем значение нулевого элемента из mass и присваиваем его в min и max для дальнейшего подсчёта. Также устанавливаем min_index и max_index в индекс, к которому заранее прибавили еденицу для лучшей визуализации в сообщении с результатом</p>
+										<pre name="code">
+if (mass.length == 0) {
+	alert("Элементов не обнаружено!")
+} else {
+	if (isNaN(parseInt(mass[0]))) {
+		min = mass[0].length;
+		max = min;
+	} else {
+		min = parseInt(mass[0]);
+		max = min;
+	}
+	min_index = 1;
+	max_index = 1;
+}
+										</pre>
+									</div>
+								</li>
+								<li>
+									<div>
+										<p name="decription_title">Далее в цикле проходимся по всем элементам mass, начиная с 1-го, потому что нулевой мы уже обработали. Выясняем тип элемента: если значение элемента не число (isNaN(parseInt(mass[i]))), то вызываем свойство length и получаем длину строки и присваиваем в счётчик (count = mass[i].length), в противном случаем просто кладём в счётчик значение элемента (count = mass[i]).</p>
+										<p name="decription_title">Затем, в том же цикле, выполняем две проверки: если значение счётчика оказалось меньше чем min, то в min присваиваем значение счётчика (count) а в min_index индекс текущего элемента с прибавленной единичкой (для лучше понятного отображения пользователю); аналогичную проверку выполняем для max</p>
+										<pre name="code">
+for (var i = 1; i < mass.length; i++) {
+	if (isNaN(parseInt(mass[i]))) {
+		count = mass[i].length;
+	} else {
+		count = mass[i];
+	}
+
+	if (count < min) {
+		min = count;
+		min_index = i + 1;
+	}
+	if (count > max) {
+		max = count;
+		max_index = i + 1;
+	}
+}
+										</pre>
+									</div>
+								</li>
+								<li>
+									<div>
+										<p name="decription_title">Выводим сообщение с результатом пользователю</p>
+										<pre name="code">
+alert("Минимальный элемент " + min_index + ", максимальный элемент " + max_index);
+										</pre>
+									</div>
+								</li>
+							</ol>
+						</div>
+					</div>
+					<div class="Timer">
+						<h2 id="timer_title">Таймер</h2>
+						<p>Засеки время с помощью таймера:</p>
+						<div>
+							<h3 id="timer_screen">
+								<time>
+									00:00:00
+								</time>
+							</h3>
+							<button id="timer_on" onclick="timer()">Запусти!</button>
+							<button id="timer_off" onclick="timer_pause()">Пауза</button>
+						</div>
+						<div class="Description">
+							<ol>
+								<li>
+									<div>
+										<p name="decription_title">Создём переменные: t для управления методом setInterval, вызывающим функцию через определённый промежуток времени, hours, minutes и seconds для подсчёта часов, минут и секунд соответственно, screen для получения доступа к элементу отображения таймера (&lt;h3 id="timer_screen"&gt;&lt;time&gt;&lt;/time&gt;&lt;/h3&gt;) и buffer для обновления значения screen</p>
+										<pre name="code">
+var 
+	t,
+	hours = 0,
+	minutes = 0,
+	seconds = 0,
+	screen = document.getElementById("timer_screen"),
+	buffer = "";
+										</pre>
+									</div>
+								</li>
+								<li>
+									<div>
+										<p name="decription_title">Создаём функцию timer_count(), которая будет вести подсчёт часов, минут и секунд</p>
+										<p name="decription_title">Сразу же увеличиваем значение seconds на 1. Далее проверям: если seconds дошёл до 60, то обновляем значение seconds, присваивая ему 0, и увеличиваем minutes на 1. Тут же проверяем minutes, как и seconds: если minutes дошёл до 60, сбрасываем его до нуля и увеличиваем hours на 1</p>
+										<pre name="code">
+function timer_count() {
+	seconds++;
+	if (seconds >= 60) {
+		seconds = 0;
+		minutes++;
+		if (minutes >= 60) {
+			minutes = 0;
+			hours++;
+		}
+	}
+}
+										</pre>
+									</div>
+								</li>
+								<li>
+									<div>
+										<p name="decription_title">Создаём функцию timer(), запускающую timer_count() с заданной периодичностью.</p>
+										<p name="decription_title">Присваиваем в переменную t метод setTimeout(), которому передаём функцию timer_screen(), которую он будет запускать, и значение периода (1000 = 1 секунда), через который будет повторно вызвана функция, которую мы передали.</p>
+										<pre name="code">
+function timer() {
+	t = setTimeout(timer_screen(), 1000);
+}
+										</pre>
+									</div>
+								</li>
+								<li>
+									<div>
+										<p name="decription_title">Создаём функцию timer_screen(), отвечающую за изменение и корректное отображение элемента screen</p>
+										<p name="decription_title">Сразу же запускаем функцию timer_count() для подсчёта часов, минут и секунд. Затем в buffer записываем отображение часов, минут и секунд, используя тернарные операторы (hours > 9 ? hours : "0" + hours). Присваиваем в screen через свойство textContext значение buffer и запускаем функцию timer() для повтороного вызова</p>
+										<pre name="code">
+function timer_screen() {
+	timer_count();
+	buffer = hours > 9 ? hours : "0" + hours + ":";
+	buffer += minutes > 9 ? minutes : "0" + minutes + ":";
+	buffer += seconds > 9 ? seconds : "0" + seconds;
+	screen.textContent = buffer;
+	timer();
+}
+										</pre>
+									</div>
+								</li>
+								<li>
+									<div>
+										<p name="decription_title">Создаём ещё одну функцию timer_pause(), отвечающую за паузу таймера</p>
+										<p name="decription_title">С помощью метода clearTimeout() останавливаем созданный Timeout t, передав его в метод в качетсве аргумента</p>
+										<pre name="code">
+function timer_pause() {
+	clearTimeout(t);
+}
+										</pre>
+									</div>
+								</li>
+								<li>
+									<div>
+										<p name="decription_title">Атрибут onclick на любом элементе html содержит информацию о действии при клике на этот элемент</p>
+										<p name="decription_title">Добавим атрибуты onclick к кнопкам с идентификаторами "timer_on" и "timer_off". Таким образом, мы добавили действие при клике на кнопки, передав нужные функции: timer() и timer_pause() соответственно</p>
+										<pre name="code">
+&lt;button id="timer_on" onclick="timer()"&gt;Запусти!&lt;/button&gt;
+&lt;button id="timer_off" onclick="timer_pause()"&gt;Пауза&lt;/button&gt;
+										</pre>
+									</div>
+								</li>
+							</ol>
+						</div>
+					</div>
+					<div class="Surprise">
+						<h2 id="surprise_title">Сюрприз</h2>
+						<p>Нажми, попробуй :)</p>
+						<button id="super_button" onclick="surprise()">Нажми на меня!</button>
+						<div class="Description">
+							<ol>
+								<li>
+									<div>
+										<p name="decription_title">Заготавливаем красивый элемент</p>
+										<pre name="code">
+&lt;div id="SSId" class="Surprise_screen"&gt;
+	&lt;img id="surprise_image" src="images/surprise_image.jpg"&gt;
+	&lt;div&gt;
+		&lt;p id="surprise_date">&lt;/p&gt;
+		&lt;p id="surprise_user_name">&lt;/p&gt	;
+	&lt;/div&gt;
+&lt;/div&gt;
+										</pre>	
+									</div>
+								</li>
+								<li>
+									<div>
+										<p name="decription_title">С такими стилями</p>
+										<pre name="code">
+.Surprise_screen {
+	display: none;
+	opacity: 0;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgb(0,0,0);
+	background-color: rgba(0,0,0,0.9);
+}
+
+#surprise_image {
+	margin: auto;
+	display: block;
+	width: 100%;
+}
+
+.Surprise_screen > div {
+	text-align: center;
+	position: fixed;
+	left: 44%;
+	top: 69%;
+	z-index: 10;
+}
+
+.Surprise_screen > div > p {
+	text-align: center;
+	font-weight: 900;
+	font-size: 27px;
+}
+										</pre>	
+									</div>
+								</li>
+								<li>
+									<div>
+										<p name="decription_title">Создаём переменную super_screen для получения доступа к заранее заготовлеенному красивому элементу</p>
+										<pre name="code">
+var super_screen = document.getElementById("SSId"),
+										</pre>
+									</div>
+								</li>
+								<li>
+									<div>
+										<p name="decription_title">Создаём переменную рекурсивную функцию show(value), принимающую предыдущее значение прозрачности (value)</p>
+										<p name="decription_title">Проверяем: если value меньше единицы (100%-ой прозрачности), прибавляем к value 0.001 и присваиваем его нашему красивому элементу, обратившись к стилям (super_screen.style.opacity = value). Затем, воспользовавшись методом setTimeout() запускаем show(value) со значением value+0.001 и периодом 50мс</p>
+										<pre name="code">
+function show(value) {
+	if (value < 1) {
+		value += 0.001;
+		super_screen.style.opacity = value;
+		setTimeout(show(value + 0.001), 50);
+	}	
+}
+										</pre>
+									</div>
+								</li>
+								<li>
+									<div>
+										<p name="decription_title">Создаём переменную рекурсивную функцию hide(value), принимающую предыдущее значение прозрачности (value)</p>
+										<p name="decription_title">По аналогии с show(value) убавляем прозрачность до 0. При достижении 0 скрываем красивый элемент (super_screen.style.display = "none")</p>
+										<pre name="code">
+function hide(value) {
+	if (value > 0) {
+		value -= 0.001;
+		super_screen.style.opacity = value;
+		setTimeout(hide(value - 0.001), 50);
+	} else {
+		super_screen.style.display = "none";
+	}
+}
+										</pre>
+									</div>
+								</li>
+								<li>
+									<div>
+										<p name="decription_title">Далее создаём функцию surprise(), отвечающую за появление красивого элемента</p>
+										<p name="decription_title">Сразу же переключаем свойсто display у super_screen в значение "block", чтобы он стал видимым. Создаём все необходимые переменные: date_field и user_name_field для получения доступа к нужным элементам красивого элемента для их формирования. Также создаём свойство options с указанием форматов полей для принятия текущей даты</p>
+										<pre name="code">
+function surprise() {
+	super_screen.style.display = "block";
+	
+	var 
+		date_field = document.getElementById("surprise_date")
+		user_name_field = document.getElementById("surprise_user_name");
+
+	var options = {
+		year: 'numeric',
+		month: 'numeric',
+		day: 'numeric',
+		timezone: 'UTC'
+	};
+	
+	date_field.textContent = new Date().toLocaleString("ru", options);
+	
+	if (localStorage.getItem("user_name") != null) {
+		var buff = "Хорошего дня, ";
+		buff += localStorage.getItem("user_name") + "!";
+		user_name_field.textContent = buff;
+	} else {
+		user_name_field.textContent = "Хорошего дня, друг!";
+	}
+
+	show(0.001);
+}
+										</pre>
+										<p name="decription_title">Присваиваем в date_field в свойство textContent (date_field.textContent) текстовое представление даты (new Date()), используя метод toLocaleString с указанием параметров "ru" и нашего свойства options</p>
+										<p name="decription_title">Далее присваиваем в user_name_field в свойство textContent строку приветствия. Проверяя localStorage на наличие имени пользователя, введённом в Приветствии</p>
+										<p name="decription_title">Запускаем функию show(value) со значением 0.001</p>
+									</div>
+								</li>
+								<li>
+									<div>
+										<p name="decription_title">Для элемента &lt;button id="super_button"&gt;&lt;/button&gt; добавим атрибут onclick, в котором укажем нашу функцию surprise()</p>
+										<pre name="code">
+&lt;button id="super_button" onclick="surprise()"&gt;Нажми на меня!&lt;/button&gt;
+										</pre>
+									</div>
+								</li>
+								<li>
+									<div>
+										<p name="decription_title">Добавляем super_screen в свойство oncklick безымянную функцию, которая запускает функцию hide(value) со значением 1</p>
+										<pre name="code">
+super_screen.onclick = function() {
+	hide(1);
+}
+										</pre>
+									</div>
+								</li>
+							</ol>
+						</div>
+					</div>
+				</div>
+				<div class="Questions">
+					<h2 id="test_title">Тест</h2>
+					<form onsubmit="return false;">
+						<div>
+		                    <p id="question_title">Как получить доступ к элементу по атрибуту id (идентификатору?)</p>
+		                    <div class="questions_answer">
+		                        <div>
+		                            <input type="radio" name="question_1" value="0">
+		                            <label>document.getElementsByName()</label>
+		                        </div>
+		                        <div>
+		                            <input type="radio" name="question_1" value="1">
+		                            <label>document.getElementsByTagName()</label>
+		                        </div>
+		                        <div>
+		                            <input type="radio" name="question_1" value="2">
+		                            <label>document.getElementById()</label>
+		                        </div>
+		                        <p id="result_1"></p>
+		                    </div>
+		                </div>
+		                <div>
+		                    <p id="question_title">Как вывести сообщение для пользователя?</p>
+		                    <div class="questions_answer">
+		                        <div>
+		                            <input type="radio" name="question_2" value="0">
+		                            <label>console.log()</label>
+		                        </div>
+		                        <div>
+		                            <input type="radio" name="question_2" value="1">
+		                            <label>alert()</label>
+		                        </div>
+		                        <div>
+		                            <input type="radio" name="question_2" value="2">
+		                            <label>prompt()</label>
+		                        </div>
+		                        <p id="result_2"></p>
+		                    </div>
+		                </div>
+		                <div>
+		                    <p id="question_title">Как в JS получить длину строки?</p>
+		                    <div class="questions_answer">
+		                        <div>
+		                            <input type="radio" name="question_3" value="0">
+		                            <label>string.length</label>
+		                        </div>
+		                        <div>
+		                            <input type="radio" name="question_3" value="1">
+		                            <label>string.length()</label>
+		                        </div>
+		                        <div>
+		                            <input type="radio" name="question_3" value="2">
+		                            <label>string.size</label>
+		                        </div>
+		                        <p id="result_3"></p>
+		                    </div>
+		                </div>
+		                <div>
+		                    <p id="question_title">Добавление элемента в массив производится с помощью метода...</p>
+		                    <div class="questions_answer">
+		                        <div>
+		                            <input type="radio" name="question_4" value="0">
+		                            <label>insert()</label>
+		                        </div>
+		                        <div>
+		                            <input type="radio" name="question_4" value="1">
+		                            <label>push()</label>
+		                        </div>
+		                        <div>
+		                            <input type="radio" name="question_4" value="2">
+		                            <label>add()</label>
+		                        </div>
+		                        <p id="result_4"></p>
+		                    </div>
+		                </div>
+		                <div>
+		                    <p id="question_title">С помощью какого метода можно строку превратить в число?</p>
+		                    <div class="questions_answer">
+		                        <div>
+		                            <input type="radio" name="question_5" value="0">
+		                            <label>parseNumber()</label>
+		                        </div>
+		                        <div>
+		                            <input type="radio" name="question_5" value="1">
+		                            <label>parseInt()</label>
+		                        </div>
+		                        <div>
+		                            <input type="radio" name="question_5" value="2">
+		                            <label>parseFloat()</label>
+		                        </div>
+		                        <p id="result_5"></p>
+		                    </div>
+		                </div>
+		                <div>
+		                    <p id="question_title">Каким методом можно задать период вызова для функции?</p>
+		                    <div class="questions_answer">
+		                        <div>
+		                            <input type="radio" name="question_6" value="0">
+		                            <label>setPeriod()</label>
+		                        </div>
+		                        <div>
+		                            <input type="radio" name="question_6" value="1">
+		                            <label>getTimeout()</label>
+		                        </div>
+		                        <div>
+		                            <input type="radio" name="question_6" value="2">
+		                            <label>setTimeout()</label>
+		                        </div>
+		                        <p id="result_6"></p>
+		                    </div>
+		                </div>
+		                <div>
+		                    <p id="question_title">Какое свойство у текстовго элемента отвечает за его содержание?</p>
+		                    <div class="questions_answer">
+		                        <div>
+		                            <input type="radio" name="question_7" value="0">
+		                            <label>textContent</label>
+		                        </div>
+		                        <div>
+		                            <input type="radio" name="question_7" value="1">
+		                            <label>getText()</label>
+		                        </div>
+		                        <div>
+		                            <input type="radio" name="question_7" value="2">
+		                            <label>text</label>
+		                        </div>
+		                        <p id="result_7"></p>
+		                    </div>
+		                </div>
+		                <div>
+		                    <p id="question_title">Какой свойство элемента отвечает за его красивое отображение?</p>
+		                    <div class="questions_answer">
+		                        <div>
+		                            <input type="radio" name="question_8" value="0">
+		                            <label>stylization</label>
+		                        </div>
+		                        <div>
+		                            <input type="radio" name="question_8" value="1">
+		                            <label>style</label>
+		                        </div>
+		                        <div>
+		                            <input type="radio" name="question_8" value="2">
+		                            <label>getStyle()</label>
+		                        </div>
+		                        <p id="result_8"></p>
+		                    </div>
+		                </div>
+		                <div>
+		                    <p id="question_title">Как получить текущую дату?</p>
+		                    <div class="questions_answer">
+		                        <div>
+		                            <input type="radio" name="question_9" value="0">
+		                            <label>var date = new Date()</label>
+		                        </div>
+		                        <div>
+		                            <input type="radio" name="question_9" value="1">
+		                            <label>var date = new Date("today")</label>
+		                        </div>
+		                        <div>
+		                            <input type="radio" name="question_9" value="2">
+		                            <label>var date = new DateTime()</label>
+		                        </div>
+		                        <p id="result_9"></p>
+		                    </div>
+		                </div>
+		                <div>
+		                    <p id="question_title">Какое свойство эелемента отвечает за событие клика по нему?</p>
+		                    <div class="questions_answer">
+		                        <div>
+		                            <input type="radio" name="question_10" value="0">
+		                            <label>mouseclick</label>
+		                        </div>
+		                        <div>
+		                            <input type="radio" name="question_10" value="1">
+		                            <label>click</label>
+		                        </div>
+		                        <div>
+		                            <input type="radio" name="question_10" value="2">
+		                            <label>onclick</label>
+		                        </div>
+		                        <p id="result_10"></p>
+		                    </div>
+		                </div>
+		                <div>
+		                	<button id="check_answer" onclick="check_questions()">Пройди тест!</button>
+		                	<p id="answers_result"></p>
+		                </div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+<script src="script.js"></script>
